@@ -1,5 +1,9 @@
 #!/bin/bash
 
-echo "insert text here" txt
+echo "ajouter votre tache" txt
 read txt
-echo $txt >> todo.txt
+
+i=0
+echo $i
+i=$((i+1))
+echo $i $txt >> todo.txt
