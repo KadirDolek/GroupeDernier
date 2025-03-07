@@ -16,8 +16,8 @@ while true; do
             echo "test"
             ;;
         "3")
-            clear
-            echo "test"
+            clear  
+            cat tasks.txt
             ;;
         "4")
             clear
