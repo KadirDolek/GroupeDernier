@@ -4,7 +4,9 @@ while true; do
     echo "1.Ajouter"
     echo "2.Supprimer"
     echo "3.Afficher"
-    echo "4.Quitter"
+    echo "4.Supprimer toute la liste"
+    echo "5.Modifier"
+    echo "6.Quitter"
     read option
     case $option in
         "1")
@@ -23,6 +25,14 @@ while true; do
             clear
             echo "Aurevoir"
             break
+            ;;
+        "5")
+            clear
+            echo "test"
+            ;;
+        "6")
+            clear
+            echo "test"
             ;;
         *)
             clear
