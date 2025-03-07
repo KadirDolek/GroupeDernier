@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo "Bienvenue dans la to-do liste"
 while true; do
     echo "1.Ajouter"
@@ -23,7 +24,8 @@ while true; do
             ;;
         "4")
             clear
-            echo "test"
+            rm tasks.txt
+            touch tasks.txt
             ;;
         "5")
             clear
