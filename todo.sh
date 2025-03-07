@@ -1,6 +1,4 @@
 #!/bin/bash
-
-#!/bin/bash
 echo "Bienvenue dans la to-do liste"
 while true; do
     echo "1.Ajouter"
