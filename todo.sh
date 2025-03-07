@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "veuillez indiquer le numéro de la tache a supprimer"
-read numero
-echo "voulez vous vraiment supprimer $numero"
-rm -rf $numero
+nl "$todo.txt"
+read -p "Numéro de la tâche à supprimer : " num
+sed -i "${num}d" "$todo.txt"
+;;
