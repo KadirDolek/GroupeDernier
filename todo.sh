@@ -8,19 +8,24 @@ while true; do
     read option
     case $option in
         "1")
+            clear
             echo "test"
             ;;
         "2")
+            clear
             echo "test"
             ;;
         "3")
+            clear
             echo "test"
             ;;
         "4")
+            clear
             echo "Aurevoir"
             break
             ;;
         *)
+            clear
             echo "cette entré n'est pas connu"
             ;;
     esac
