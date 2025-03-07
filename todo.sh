@@ -23,8 +23,7 @@ while true; do
             ;;
         "4")
             clear
-            echo "Aurevoir"
-            break
+            echo "test"
             ;;
         "5")
             clear
@@ -32,7 +31,8 @@ while true; do
             ;;
         "6")
             clear
-            echo "test"
+            echo "Aurevoir"
+            break
             ;;
         *)
             clear
