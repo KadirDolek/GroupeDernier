@@ -1,6 +1,16 @@
 lala
 veve
+<<<<<<< HEAD
+cl
+faire mes devoir
+1 zaza
+1 ters
+zaza
+sara
+safari
+=======
 dormir
+>>>>>>> 60a1c74d9ec55eae8629d5dcfa3bd8a19d2546c1
 debout
 partir
 Tirer

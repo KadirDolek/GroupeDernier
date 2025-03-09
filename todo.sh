@@ -12,7 +12,10 @@ while true; do
     case $option in
         "1")
             clear
-            echo "test"
+            echo "ajouter votre tache" txt
+            read txt
+            echo $txt >> todo.txt
+            nl todo.txt
             ;;
         "2")
             clear
