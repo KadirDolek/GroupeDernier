@@ -14,6 +14,7 @@ while true; do
             echo "test"
             ;;
         "2")
+            clear
                 nl todo.txt
             while true; do
                 read -p "Numéro de la tâche à supprimer : " num
