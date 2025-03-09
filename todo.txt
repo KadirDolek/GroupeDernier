@@ -9,3 +9,6 @@ jpp
 aled
 Aller
 jamais
+ok
+non
+lol
