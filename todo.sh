@@ -38,14 +38,14 @@ while true; do
         ;;
         "3")
             clear
-            cat tasks.txt
+            cat todo.txt
             ;;
         "4")
             clear
             read -p "êtes vous sur de supprimer toutes les tâches (y/n): " ouiNon
             if [ $ouiNon == "y" -o $ouiNon == "Y" ]; then
-                rm tasks.txt
-                touch tasks.txt
+                rm todo.txt
+                touch todo.txt
                 echo "Les tâches ont bien été supprimé"
             else
                 echo "Les tâches n'ont pas été supprimé"
@@ -53,7 +53,27 @@ while true; do
             ;;
         "5")
             clear
-            echo "test"
+            nl todo.txt
+            while true; do
+                read -p "Numéro de la tâche à modifier : " num
+                if [[ ! $num =~ ^[0-9]+$ ]]; then
+                    echo "Veuillez entrer un numéro valide."
+                else
+                    if [ $(wc -l < todo.txt) -lt $num ] || [ $num -le 0 ]; then
+                        echo "Numéro de tâche invalide."
+                    else
+                        # Affiche tâche à modifier
+                        task=$(sed -n "${num}p" todo.txt)
+                        echo "Tâche actuelle : $task"
+                        read -p "Entrez votre modification : " new_task
+                        # Modifie tâche fichier
+                        sed -i "${num}s/.*/$new_task/" todo.txt
+                        echo "Tâche modifiée !"
+                        nl todo.txt
+                        break
+                    fi
+                fi
+            done
             ;;
         "6")
             clear
