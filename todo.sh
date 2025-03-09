@@ -19,26 +19,30 @@ while true; do
             ;;
         "2")
             clear
-            nl todo.txt
-            while true; do
-                read -p "Numéro de la tâche à supprimer : " num
-                if [[ ! $num =~ ^[0-9]+$ ]]; then
-                    echo "Veuillez entrer un numéro valide."
-                else
-                    if [ $(wc -l < todo.txt) -lt $num ] || [ $num -le 0 ]; then
-                        echo "Numéro de tâche invalide."
+            if [ -s todo.txt ]; then
+                nl todo.txt
+                while true; do
+                    read -p "Numéro de la tâche à supprimer : " num
+                    if [[ ! $num =~ ^[0-9]+$ ]]; then
+                        echo "Veuillez entrer un numéro valide."
                     else
-                        sed -i "${num}d" todo.txt
-                        echo "Tâche supprimée !"
-                        nl todo.txt
-                        break
+                        if [ $(wc -l < todo.txt) -lt $num ] || [ $num -le 0 ]; then
+                            echo "Numéro de tâche invalide."
+                        else
+                            sed -i "${num}d" todo.txt
+                            echo "Tâche supprimée !"
+                            nl todo.txt
+                            break
+                        fi
                     fi
-                fi
-            done
+                done
+            else
+                echo "Il y'a aucune tâche a supprimer"
+            fi
             ;;
         "3")
             clear
-            cat todo.txt
+            nl todo.txt
             ;;
         "4")
             clear
@@ -53,27 +57,31 @@ while true; do
             ;;
         "5")
             clear
-            nl todo.txt
-            while true; do
-                read -p "Numéro de la tâche à modifier : " num
-                if [[ ! $num =~ ^[0-9]+$ ]]; then
-                    echo "Veuillez entrer un numéro valide."
-                else
-                    if [ $(wc -l < todo.txt) -lt $num ] || [ $num -le 0 ]; then
-                        echo "Numéro de tâche invalide."
+            if [ -s todo.txt ]; then
+                nl todo.txt
+                while true; do
+                    read -p "Numéro de la tâche à modifier : " num
+                    if [[ ! $num =~ ^[0-9]+$ ]]; then
+                        echo "Veuillez entrer un numéro valide."
                     else
-                        # Affiche tâche à modifier
-                        task=$(sed -n "${num}p" todo.txt)
-                        echo "Tâche actuelle : $task"
-                        read -p "Entrez votre modification : " new_task
-                        # Modifie tâche fichier
-                        sed -i "${num}s/.*/$new_task/" todo.txt
-                        echo "Tâche modifiée !"
-                        nl todo.txt
-                        break
+                        if [ $(wc -l < todo.txt) -lt $num ] || [ $num -le 0 ]; then
+                            echo "Numéro de tâche invalide."
+                        else
+                            # Affiche tâche à modifier
+                            task=$(sed -n "${num}p" todo.txt)
+                            echo "Tâche actuelle : $task"
+                            read -p "Entrez votre modification : " new_task
+                            # Modifie tâche fichier
+                            sed -i "${num}s/.*/$new_task/" todo.txt
+                            echo "Tâche modifiée !"
+                            nl todo.txt
+                            break
+                        fi
                     fi
-                fi
-            done
+                done
+            else
+                echo "il n'y a rien a modifier" 
+            fi
             ;;
         "6")
             clear
