@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo "Bienvenue dans la to-do liste"
 while true; do
     echo "1.Ajouter"
@@ -38,7 +39,14 @@ while true; do
             ;;
         "4")
             clear
-            echo "test"
+            read -p "êtes vous sur de supprimer toutes les tâches (y/n): " ouiNon
+            if [ $ouiNon == "y" -o $ouiNon == "Y" ]; then
+                rm tasks.txt
+                touch tasks.txt
+                echo "Les tâches ont bien été supprimé"
+            else
+                echo "Les tâches n'ont pas été supprimé"
+            fi
             ;;
         "5")
             clear
