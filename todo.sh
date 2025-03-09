@@ -24,8 +24,14 @@ while true; do
             ;;
         "4")
             clear
-            rm tasks.txt
-            touch tasks.txt
+            read -p "êtes vous sur de supprimer toutes les tâches (y/n): " ouiNon
+            if [ $ouiNon == "y" -o $ouiNon == "Y" ]; then
+                rm tasks.txt
+                touch tasks.txt
+                echo "Les tâches ont bien été supprimé"
+            else
+                echo "Les tâches n'ont pas été supprimé"
+            fi
             ;;
         "5")
             clear
